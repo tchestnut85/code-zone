@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
         ],
         include: {
             model: User,
-            attribute: ['username']
+            attributes: ['username']
         },
         order: [['created_at', 'DESC']]
     })
@@ -33,14 +33,13 @@ router.get('/:id', (req, res) => {
             'id',
             'title',
             'content',
-            'createdAt',
+            'created_at',
         ],
-        include: [
-            {
-                model: 'User',
-                attributes: ['username']
-            }
-        ]
+        include:
+        {
+            model: User,
+            attributes: ['username']
+        }
     })
         .then(blogData => {
             if (!blogData) {
@@ -59,9 +58,55 @@ router.post('/', (req, res) => {
     Blog.create({
         title: req.body.title,
         content: req.body.content,
-        creator_id: req.body.id
+        creator_id: req.body.creator_id
     })
         .then(blogData => res.json(blogData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+// PUT - update a blog post
+router.put('/:id', (req, res) => {
+    Blog.update(
+        {
+            title: req.body.title,
+            content: req.body.content
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        }
+    )
+        .then(blogData => {
+            if (!blogData[0]) {
+                res.status(404).json({ message: "We couldn't find that blog post!" });
+                return;
+            }
+            res.json(blogData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).jeson(err);
+        });
+});
+
+// DELETE - delete a blog post
+router.delete('/:id', (req, res) => {
+    Blog.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(blogData => {
+            if (!blogData) {
+                res.status(404).json({ message: "We couldn't find that blog post!" });
+                return;
+            }
+            res.json(blogData);
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);

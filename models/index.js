@@ -9,7 +9,7 @@ User.hasMany(Blog, {
 });
 
 Blog.belongsTo(User, {
-    foreignKey: 'id'
+    foreignKey: 'creator_id'
 });
 
 module.exports = { User, Blog };
