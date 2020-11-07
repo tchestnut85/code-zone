@@ -21,7 +21,8 @@ const sess = {
     saveUninitialized: true,
     store: new SequelizeStore({
         db: sequelize
-    })
+    }),
+    maxAge: 900000
 };
 
 // middleware from express
