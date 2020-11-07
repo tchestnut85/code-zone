@@ -25,7 +25,7 @@ router.get('/:id', (req, res) => {
     })
         .then(userData => {
             if (!userData) {
-                res.status(404).jeson({ error: 'No developer found with this ID!' });
+                res.status(404).jeson({ message: 'No developer found with that ID!' });
                 return;
             }
             res.json(userData);
@@ -50,6 +50,37 @@ router.post('/', (req, res) => {
         });
 });
 
+// User login
+router.post('/login', (req, res) => {
+    User.findOne({
+        where: {
+            username: req.body.username
+        }
+    })
+        .then(userData => {
+            if (!userData) {
+                res.json(400).json({ message: 'No developer found with that ID!' });
+                return;
+            };
+
+            const validPassword = userData.passwordConfirm(req.body.password);
+
+            if (!validPassword) {
+                res.status(400).json({ message: "That's not the right password..." });
+                return;
+            }
+
+            req.session.save(() => {
+                req.session.user_id = userData.id;
+                req.session.username = userData.username;
+                req.session.loggedIn = true;
+
+                res.json({ user: userData, message: `Hi ${userData.username}, you're logged in! Time to blog!!` });
+            });
+
+        });
+});
+
 // PUT - update a user
 router.put('/:id', (req, res) => {
     User.update(req.body, {
@@ -60,7 +91,7 @@ router.put('/:id', (req, res) => {
     })
         .then(userData => {
             if (!userData) {
-                res.status(400).json({ error: 'No developer found with this ID!' });
+                res.status(400).json({ message: 'No developer found with that ID!' });
             }
             res.json(userData);
         })
@@ -79,7 +110,7 @@ router.delete('/:id', (req, res) => {
     })
         .then(userData => {
             if (!userData) {
-                res.status(404).json({ error: 'No developer found with this ID!' });
+                res.status(404).json({ message: 'No developer found with that ID!' });
                 return;
             }
             res.json(userData);
