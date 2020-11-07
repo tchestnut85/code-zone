@@ -35,6 +35,29 @@ router.post('/', (req, res) => {
     // }
 });
 
+// PUT - update a comment
+router.put('/:id', (req, res) => {
+    Comment.update(req.body,
+        {
+            where: {
+                id: req.params.id
+            }
+        }
+    )
+        .then(commentData => {
+            if (!commentData[0]) {
+                res.status(404).json({ message: "We couldn't find that comment!" });
+                return;
+            }
+            res.json(commentData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+
+});
+
 // DELETE a comment
 router.delete('/:id', (req, res) => {
     Comment.destroy({

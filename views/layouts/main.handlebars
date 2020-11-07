@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Zone</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1><a href="/"></a></h1>
+            <nav>
+
+                <a href="/dashboard">Your Dashboard</a>
+                <button id="logout" class='btn-no-style'>LOGOUT</button>
+                <a href="/login">LOGIN</a>
+            </nav>
+        </header>
+        <main>
+            {{{body}}}
+        </main>
+        <footer>Code Zone</footer>
+    </div>
+
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
+</body>
+
+</html>

@@ -88,11 +88,7 @@ router.post('/', (req, res) => {
 
 // PUT - update a blog post
 router.put('/:id', (req, res) => {
-    Blog.update(
-        {
-            title: req.body.title,
-            content: req.body.content
-        },
+    Blog.update(req.body,
         {
             where: {
                 id: req.params.id
@@ -108,7 +104,7 @@ router.put('/:id', (req, res) => {
         })
         .catch(err => {
             console.log(err);
-            res.status(500).jeson(err);
+            res.status(500).json(err);
         });
 });
 
