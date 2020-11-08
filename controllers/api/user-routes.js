@@ -53,7 +53,15 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password
     })
-        .then(userData => res.json(userData))
+        .then(userData => {
+            req.session.save(() => {
+                req.session.user_id = userData.id;
+                req.session.username = userData.username;
+                req.session.loggedIn = true;
+
+                res.json(userData);
+            });
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -69,7 +77,7 @@ router.post('/login', (req, res) => {
     })
         .then(userData => {
             if (!userData) {
-                res.json(400).json({ message: 'No developer found with that ID!' });
+                res.json(400).json({ message: "That username doesn't exist!" });
                 return;
             };
 
@@ -89,6 +97,18 @@ router.post('/login', (req, res) => {
             });
 
         });
+});
+
+// User logout
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            console.log('logged out!');
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
 });
 
 // PUT - update a user

@@ -11,12 +11,15 @@
 <body>
     <div class="wrapper">
         <header>
-            <h1><a href="/"></a></h1>
             <nav>
-
-                <a href="/dashboard">Your Dashboard</a>
+                <h1><a href="/">CODE ZONE</a></h1>
+                {{#if loggedIn}}
+                <a href="/dashboard">Blog Dashboard</a>
                 <button id="logout" class='btn-no-style'>LOGOUT</button>
+                {{else}}
+                <a href="/signup">SIGNUP</a>
                 <a href="/login">LOGIN</a>
+                {{/if}}
             </nav>
         </header>
         <main>
