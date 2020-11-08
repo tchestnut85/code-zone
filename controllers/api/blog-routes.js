@@ -3,6 +3,7 @@ const { Blog, User, Comment } = require('../../models');
 
 // GET all blog posts
 router.get('/', (req, res) => {
+    console.log('req.session from blog-routes line 6:', req.session);
     Blog.findAll({
         attributes: [
             'id',
@@ -43,6 +44,7 @@ router.get('/:id', (req, res) => {
         attributes: [
             'id',
             'title',
+            'creator_id',
             'content',
             'created_at',
         ],
@@ -75,11 +77,13 @@ router.get('/:id', (req, res) => {
 
 // POST - create a blog post
 router.post('/', (req, res) => {
+    console.log('req.session from blog-routes line 78:', req.session);
+
     Blog.create({
         title: req.body.title,
         content: req.body.content,
-        creator_id: req.body.creator_id
-        // creator_id: req.session.creator_id
+        // creator_id: req.body.creator_id
+        creator_id: req.session.user_id
     })
         .then(blogData => res.json(blogData))
         .catch(err => {
