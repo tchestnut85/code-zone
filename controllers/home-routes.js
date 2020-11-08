@@ -29,6 +29,7 @@ router.get('/', (req, res) => {
     })
         .then(blogData => {
             const blogs = blogData.map(blog => blog.get({ plain: true }));
+            console.log(blogs);
             res.render('homepage', {
                 blogs,
                 loggedIn: req.session.loggedIn
@@ -46,16 +47,15 @@ router.get('/', (req, res) => {
 // if wrong password it should redirect to login page
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-        res.redirect('/');
+        res.redirect('/dashboard/');
         return;
     }
     res.render('login');
 });
 
-// Direct to user signup page
+// Direct user to signup page when clicking signup link
 router.get('/signup', (req, res) => {
     res.render('signup');
-    // res.redirect('/login');
 });
 
 module.exports = router;

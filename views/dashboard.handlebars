@@ -1,0 +1,20 @@
+<section class="dashboard">
+    <div>
+        <button id='new-blog-btn'><a href='/blog-post'>New Blog Post</a></button>
+    </div>
+    {{!-- {{#if blogs.length}} --}}
+    <div>
+        <h3>Your Past Blogs</h3>
+    </div>
+    <article id='blog-list'>
+        {{#each blogs}}
+        <div class="blog-title">
+            <div>Title: {{blogs.title}}</div>
+            <a href='/dashboard/edit/{{post.id}}' class='edit-link'>edit post</a>
+        </div>
+        <div>Entry: {{content}}</div>
+        <div>Date Posted: {{created_at}}</div>
+        {{/each}}
+    </article>
+    {{!-- {{/if}} --}}
+</section>

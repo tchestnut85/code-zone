@@ -25,8 +25,13 @@
         <main>
             {{{body}}}
         </main>
+
+        {{#if loggedIn}}
+        <footer>{{session.username}}, welcome to Code Zone!</footer>
+        {{else}}
         <footer>Code Zone</footer>
     </div>
+    {{/if}}
 
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>

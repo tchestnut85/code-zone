@@ -18,7 +18,7 @@ async function createAccount(event) {
 
         if (response.ok) {
             console.log(`Account for ${username} has been created! Happy blogging!`);
-            // document.location.replace('/dashboard');
+            document.location.replace('/login/');
         } else {
             alert(response.statusText);
         }

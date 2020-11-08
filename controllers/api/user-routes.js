@@ -35,7 +35,7 @@ router.get('/:id', (req, res) => {
     })
         .then(userData => {
             if (!userData) {
-                res.status(404).jeson({ message: 'No developer found with that ID!' });
+                res.status(404).json({ message: 'No developer found with that ID!' });
                 return;
             }
             res.json(userData);
@@ -55,9 +55,9 @@ router.post('/', (req, res) => {
     })
         .then(userData => {
             req.session.save(() => {
-                req.session.user_id = userData.id;
-                req.session.username = userData.username;
-                req.session.loggedIn = true;
+                // req.session.user_id = userData.id;
+                // req.session.username = userData.username;
+                // req.session.loggedIn = true;
 
                 res.json(userData);
             });

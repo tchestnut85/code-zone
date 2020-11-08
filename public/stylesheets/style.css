@@ -17,14 +17,15 @@ a {
   transition: color .1s;
 }
 
-a:hover {
+nav a:hover {
   color: #3486eb;
 }
 
 button {
-  background-color: #225ca3;
+  background-color: lightblue;
   border: 0;
-  padding: 1%;
+  width: 75%;
+  padding: 5%;
   color: white;
   font-weight: bold;
   transition: background-color .1s;
@@ -33,7 +34,8 @@ button {
 }
 
 button:hover {
-  background-color: #3486eb;
+  background-color: darkgrey;
+  transition: 0.1s;
 }
 
 .post-list {
@@ -131,15 +133,6 @@ main {
 .edit-link {
   display: block;
   margin: -1.5% 0 2% 0;
-}
-
-.upvote-btn {
-  background-color: #197d0f;
-  transition: background-color .1s;
-}
-
-.upvote-btn:hover {
-  background-color: #1f9c13;
 }
 
 .comment-form {

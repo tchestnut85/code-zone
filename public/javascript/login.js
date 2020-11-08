@@ -16,7 +16,7 @@ async function loginForm(event) {
 
         if (response.ok) {
             console.log(`${username} has been logged in. Happy blogging!`);
-            document.location.replace('/dashboard');
+            document.location.replace('/dashboard/');
         } else {
             alert(response.statusText);
         }
