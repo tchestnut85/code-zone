@@ -8,13 +8,11 @@ router.get('/', (req, res) => {
         where: {
             creator_id: req.session.user_id
         },
-        // attributes: [
-        //     'id',
-        //     'title',
-        //     'content',
-        //     'created_at'
-        // ],
         include: [
+            {
+                model: User,
+                attributes: ['username']
+            },
             {
                 model: Comment,
                 attributes: ['content', 'user_id'],

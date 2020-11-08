@@ -7,7 +7,7 @@ async function createAccount(event) {
 
     if (username && email && password) {
         const response = await fetch('/api/users', {
-            method: 'post',
+            method: 'POST',
             body: JSON.stringify({
                 username,
                 email,
@@ -18,7 +18,7 @@ async function createAccount(event) {
 
         if (response.ok) {
             console.log(`Account for ${username} has been created! Happy blogging!`);
-            document.location.replace('/login/');
+            document.location.replace('/login');
         } else {
             alert(response.statusText);
         }

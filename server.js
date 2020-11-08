@@ -13,7 +13,7 @@ const routes = require('./controllers');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// enable session 
+// enable session and expires after 5 minutes with maxAge
 const sess = {
     secret: 'dovahkiin',
     cookie: {},
@@ -22,7 +22,7 @@ const sess = {
     store: new SequelizeStore({
         db: sequelize
     }),
-    maxAge: 900000
+    maxAge: 300000
 };
 
 // middleware from express

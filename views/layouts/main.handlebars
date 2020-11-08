@@ -14,8 +14,8 @@
             <nav>
                 <h1><a href="/">CODE ZONE</a></h1>
                 {{#if loggedIn}}
-                <a href="/dashboard">Blog Dashboard</a>
-                <button id="logout" class='btn-no-style'>LOGOUT</button>
+                <a href="/dashboard">User Dashboard</a>
+                <button id="logout" class='btn-no-style link-btn'>LOGOUT</button>
                 {{else}}
                 <a href="/signup">SIGNUP</a>
                 <a href="/login">LOGIN</a>
@@ -27,11 +27,11 @@
         </main>
 
         {{#if loggedIn}}
-        <footer>{{session.username}}, welcome to Code Zone!</footer>
+        <footer>{{username}}, welcome to Code Zone!</footer>
         {{else}}
         <footer>Code Zone</footer>
+        {{/if}}
     </div>
-    {{/if}}
 
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>

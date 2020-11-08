@@ -1,20 +1,22 @@
 <section class="dashboard">
     <div>
-        <button id='new-blog-btn'><a href='/blog-post'>New Blog Post</a></button>
+        <a href='/new-blog' class='create-link'>New Blog Post</a>
     </div>
-    {{!-- {{#if blogs.length}} --}}
     <div>
         <h3>Your Past Blogs</h3>
     </div>
-    <article id='blog-list'>
+    <article id='blog-list' class='user-blog-list'>
         {{#each blogs}}
-        <div class="blog-title">
-            <div>Title: {{blogs.title}}</div>
-            <a href='/dashboard/edit/{{post.id}}' class='edit-link'>edit post</a>
+        <div class='dashboard-blog'>
+            <div class="blog-title">
+                <div>Title: {{title}}</div>
+            </div>
+            <div>Entry: {{content}}</div>
+            <div>Date Posted: {{createdAt}}</div>
+            <div>
+                <a href='/dashboard/edit/{{id}}' class='edit-link'>edit post</a>
+            </div>
         </div>
-        <div>Entry: {{content}}</div>
-        <div>Date Posted: {{created_at}}</div>
         {{/each}}
     </article>
-    {{!-- {{/if}} --}}
 </section>

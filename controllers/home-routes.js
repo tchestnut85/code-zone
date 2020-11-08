@@ -41,13 +41,11 @@ router.get('/', (req, res) => {
         });
 });
 
-
-
 // User login route - if no account this should redirect to signup page, 
 // if wrong password it should redirect to login page
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-        res.redirect('/dashboard/');
+        res.redirect('/dashboard');
         return;
     }
     res.render('login');
@@ -56,6 +54,10 @@ router.get('/login', (req, res) => {
 // Direct user to signup page when clicking signup link
 router.get('/signup', (req, res) => {
     res.render('signup');
+});
+
+router.get('/new-blog', (req, res) => {
+    res.render('new-blog');
 });
 
 module.exports = router;

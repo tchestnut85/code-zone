@@ -6,7 +6,7 @@ async function loginForm(event) {
 
     if (username && password) {
         const response = await fetch('/api/users/login', {
-            method: 'post',
+            method: 'POST',
             body: JSON.stringify({
                 username,
                 password
@@ -16,7 +16,7 @@ async function loginForm(event) {
 
         if (response.ok) {
             console.log(`${username} has been logged in. Happy blogging!`);
-            document.location.replace('/dashboard/');
+            document.location.replace('/dashboard');
         } else {
             alert(response.statusText);
         }

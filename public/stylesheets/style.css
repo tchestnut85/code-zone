@@ -21,10 +21,9 @@ nav a:hover {
   color: #3486eb;
 }
 
-button {
-  background-color: lightblue;
+.submit-btn {
+  background-color: steelblue;
   border: 0;
-  width: 75%;
   padding: 5%;
   color: white;
   font-weight: bold;
@@ -34,7 +33,7 @@ button {
 }
 
 button:hover {
-  background-color: darkgrey;
+  background-color: blueviolet;
   transition: 0.1s;
 }
 
@@ -93,6 +92,28 @@ main {
   padding: 2% 4%;
 }
 
+.create-link {
+    width: 75%;
+    border: 0.5px black;
+    border-radius: 5px;
+    padding: 10px;
+    color: white; 
+    background-color: steelblue;
+}
+
+.create-btn {
+    width: 75%;
+    border: 0.5px black;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    background-color: steelblue;
+}
+
+.create-link:hover {
+  background-color: darkslateblue;
+}
+
 .btn-no-style {
   background: none;
   border: none;
@@ -130,9 +151,8 @@ main {
   color: #7d7d7d;
 }
 
-.edit-link {
-  display: block;
-  margin: -1.5% 0 2% 0;
+.dashboard-blog {
+  margin: 5vh 0;
 }
 
 .comment-form {
