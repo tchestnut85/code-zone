@@ -1,0 +1,34 @@
+<article class="post">
+    <div>
+        <span>Title: {{title}}</span>
+    </div>
+    <div class="content">
+        <span>{{content}}</span>
+    </div>
+    <div>Blogger: {{User.username}}</div>
+    <div>Posted: {{created_at}}</div>
+</article>
+
+<form class="comment-form">
+    <div>
+        <textarea name="comment-body"></textarea>
+    </div>
+    <div>
+        <button type="submit">Add Comment</button>
+    </div>
+</form>
+
+<div class="comments">
+    {{#each blog.comments}}
+    <section class="comment">
+        <div class='info'>
+            {{user.username}} at {{created_at}}
+        </div>
+        <div class="text">
+            {{content}}
+        </div>
+    </section>
+    {{/each}}
+</div>
+
+<script src='/javascript/comment.js'></script>

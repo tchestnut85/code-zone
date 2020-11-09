@@ -21,18 +21,18 @@ router.get('/', (req, res) => {
 
 // POST - create a comment
 router.post('/', (req, res) => {
-    // if (req.session) {
-    Comment.create({
-        content: req.body.content,
-        blog_id: req.body.blog_id,
-        user_id: req.body.user_id
-    })
-        .then(commentData => res.json(commentData))
-        .catch(err => {
-            console.log(err);
-            res.status(400).json(err);
-        });
-    // }
+    if (req.session) {
+        Comment.create({
+            content: req.body.content,
+            blog_id: req.body.blog_id,
+            user_id: req.session.user_id
+        })
+            .then(commentData => res.json(commentData))
+            .catch(err => {
+                console.log(err);
+                res.status(400).json(err);
+            });
+    }
 });
 
 // PUT - update a comment

@@ -5,11 +5,14 @@
             <div>
                 <span>Title: {{title}}</span>
             </div>
-            <div class="meta">
+            <div class="content">
                 <span>{{content}}</span>
             </div>
             <div>Blogger: {{User.username}}</div>
             <div>Posted: {{created_at}}</div>
+            <div>
+                <a href="/blog/{{id}}">Comments:{{comments.length}}</a>
+            </div>
         </article>
     </li>
     {{/each}}

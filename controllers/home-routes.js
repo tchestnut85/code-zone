@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
 
     Blog.findAll({
         attributes: [
+            'id',
             'title',
             'content',
             'created_at'
@@ -29,7 +30,6 @@ router.get('/', (req, res) => {
     })
         .then(blogData => {
             const blogs = blogData.map(blog => blog.get({ plain: true }));
-            console.log(blogs);
             res.render('homepage', {
                 blogs,
                 loggedIn: req.session.loggedIn
@@ -41,8 +41,7 @@ router.get('/', (req, res) => {
         });
 });
 
-// User login route - if no account this should redirect to signup page, 
-// if wrong password it should redirect to login page
+// User login route
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/dashboard');
@@ -56,8 +55,42 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+// Route for page to create a new blog post
 router.get('/new-blog', (req, res) => {
     res.render('new-blog');
+});
+
+// Route for single-blog page
+router.get('/blog/:id', (req, res) => {
+    Blog.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: ['id', 'title', 'content', 'created_at'
+        ],
+        include: [
+            {
+                model: Comment,
+                attributes: ['id', 'content', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            }
+        ]
+    })
+        .then(blogData => {
+            if (!blogData) {
+                res.status(404).json({ message: "We didn't find a blog post with that ID!" });
+                return;
+            }
+            const blog = blogData.get({ plain: true });
+            res.render('single-blog', { blog });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 module.exports = router;

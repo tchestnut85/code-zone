@@ -1,17 +1,15 @@
 async function createBlog(event) {
     event.preventDefault();
 
-    const blogTitle = document.querySelector('#post-title').value;
-    const blogContent = document.querySelector('#post-content').value;
-    console.log('blog content variables:', blogTitle, blogContent);
-    // const token = req.header
+    const title = document.querySelector('#post-title').value;
+    const content = document.querySelector('#post-content').value;
 
-    if (blogTitle && blogContent) {
+    if (title && content) {
         const response = await fetch('/api/blogs', {
             method: 'POST',
             body: JSON.stringify({
-                blogTitle,
-                blogContent
+                title,
+                content
             }),
             headers: {
                 'Content-Type': 'application/json',
@@ -21,8 +19,7 @@ async function createBlog(event) {
         if (response.ok) {
             document.location.replace('/dashboard');
         } else {
-            // console.log(response.statusText);
-            console.log('blog content variables:', blogTitle, blogContent);
+            console.log(response.statusText);
         }
     }
 }
