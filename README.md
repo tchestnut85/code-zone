@@ -20,7 +20,7 @@
     - `npm install`
   - To start the server, run the following in your command line: 
     - `npm start`
-  - Navigate to your `localhost:3001` in your browser to open the app locally.
+  - Navigate to `localhost:3001` in your browser to open the app locally.
 
   ## Tech Used
   - Handlebars.js
