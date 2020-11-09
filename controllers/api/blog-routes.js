@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Blog, User, Comment } = require('../../models');
-const userAuth = require('../utils/auth');
+const userAuth = require('../../utils/auth');
 
 // GET all blog posts
 router.get('/', (req, res) => {
@@ -37,7 +37,7 @@ router.get('/', (req, res) => {
 });
 
 // GET - single blog post by ID
-router.get('/:id', userAuth, (req, res) => {
+router.get('/:id', (req, res) => {
     Blog.findOne({
         where: {
             id: req.params.id
