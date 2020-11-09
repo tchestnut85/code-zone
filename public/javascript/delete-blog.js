@@ -14,4 +14,4 @@ async function deleteBlog(event) {
     }
 }
 
-document.querySelector.toString('#delete-btn').addEventListener('click', deleteBlog);
+document.querySelector('#delete-btn').addEventListener('click', deleteBlog);
