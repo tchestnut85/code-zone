@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Blog, User, Comment } = require('../../models');
+const userAuth = require('../utils/auth');
 
 // GET all blog posts
 router.get('/', (req, res) => {
@@ -36,7 +37,7 @@ router.get('/', (req, res) => {
 });
 
 // GET - single blog post by ID
-router.get('/:id', (req, res) => {
+router.get('/:id', userAuth, (req, res) => {
     Blog.findOne({
         where: {
             id: req.params.id
@@ -76,7 +77,7 @@ router.get('/:id', (req, res) => {
 });
 
 // POST - create a blog post
-router.post('/', (req, res) => {
+router.post('/', userAuth, (req, res) => {
     console.log('req.session from blog-routes line 78:', req.session);
 
     Blog.create({
@@ -92,7 +93,7 @@ router.post('/', (req, res) => {
 });
 
 // PUT - update a blog post
-router.put('/:id', (req, res) => {
+router.put('/:id', userAuth, (req, res) => {
     Blog.update(req.body,
         {
             where: {
@@ -114,7 +115,7 @@ router.put('/:id', (req, res) => {
 });
 
 // DELETE - delete a blog post
-router.delete('/:id', (req, res) => {
+router.delete('/:id', userAuth, (req, res) => {
     Blog.destroy({
         where: {
             id: req.params.id

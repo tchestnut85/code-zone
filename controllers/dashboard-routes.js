@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { User, Blog, Comment } = require('../models');
+const userAuth = require('../utils/auth');
 
-router.get('/', (req, res) => {
+router.get('/', userAuth, (req, res) => {
     console.log(req.session);
 
     Blog.findAll({

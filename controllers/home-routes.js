@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
 const { Blog, User, Comment } = require('../models');
+const userAuth = require('../utils/auth');
 
 // GET the homepage
 router.get('/', (req, res) => {
@@ -56,12 +56,12 @@ router.get('/signup', (req, res) => {
 });
 
 // Route for page to create a new blog post
-router.get('/new-blog', (req, res) => {
+router.get('/new-blog', userAuth, (req, res) => {
     res.render('new-blog');
 });
 
 // Route for single-blog page
-router.get('/blog/:id', (req, res) => {
+router.get('/blog/:id', userAuth, (req, res) => {
     Blog.findOne({
         where: {
             id: req.params.id
