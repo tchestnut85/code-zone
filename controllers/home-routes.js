@@ -1,10 +1,11 @@
 const router = require('express').Router();
 const { Blog, User, Comment } = require('../models');
 const userAuth = require('../utils/auth');
+const timeStamp = require('../utils/helpers');
 
 // GET the homepage
 router.get('/', (req, res) => {
-    console.log(req.session);
+    // console.log(req.session);
 
     Blog.findAll({
         attributes: [
@@ -67,8 +68,7 @@ router.get('/blog/:id', userAuth, (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: ['id', 'title', 'content', 'created_at'
-        ],
+        attributes: ['id', 'title', 'creator_id', 'content', 'created_at'],
         include: [
             {
                 model: Comment,
@@ -77,6 +77,10 @@ router.get('/blog/:id', userAuth, (req, res) => {
                     model: User,
                     attributes: ['username']
                 }
+            },
+            {
+                model: User,
+                attributes: ['username']
             }
         ]
     })

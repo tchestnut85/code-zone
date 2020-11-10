@@ -2,16 +2,19 @@
     {{#each blogs}}
     <li>
         <article class="post">
-            <div>
-                <span>Title: {{title}}</span>
-            </div>
-            <div class="content">
-                <span>{{content}}</span>
-            </div>
-            <div>Blogger: {{User.username}}</div>
-            <div>Posted: {{timeStamp created_at}}</div>
-            <div>
-                <a href="/blog/{{id}}">Comments:{{comments.length}}</a>
+            <div class="card">
+                <div class='card-header'>
+                    <span class='main-font is-size-4 card-header-title is-centered'><a
+                            href="/blog/{{id}}">{{title}}</a></span>
+                </div>
+                <div class="second-font card-content content">
+                    <span>{{content}}</span>
+                </div>
+                <div class='second-font card-content username'>By: {{User.username}}</div>
+                <div class='card-footer'>
+                    <div class='card-footer-item time-stamp'>{{timeStamp created_at}}</div>
+                    <a class='card-footer-item' href="/blog/{{id}}">Comments: {{Comments.length}}</a>
+                </div>
             </div>
         </article>
     </li>

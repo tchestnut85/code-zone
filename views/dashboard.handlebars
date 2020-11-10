@@ -1,22 +1,29 @@
 <section class="dashboard">
-    <div>
+    <div class='new-blog-link'>
         <a href='/new-blog' class='create-link'>New Blog Post</a>
     </div>
-    <div>
+    <div class='is-size-4 past-blog-heading'>
         <h3>Your Past Blogs</h3>
     </div>
-    <article id='blog-list' class='user-blog-list'>
-        {{#each blogs}}
-        <div class='dashboard-blog'>
-            <div class="blog-title">
-                <div>Title: {{title}}</div>
+
+    {{#each blogs}}
+    <article class="post">
+        <div class="card">
+            <div class='card-header'>
+                <span class='card-header-title is-centered'><a href="/blog/{{id}}">{{title}}</a></span>
             </div>
-            <div>Entry: {{content}}</div>
-            <div>Date Posted: {{timeStamp createdAt}}</div>
-            <div>
-                <a href='/dashboard/edit/{{id}}' class='edit-link'>edit post</a>
+            <div class="card-content content">
+                <span>{{content}}</span>
+            </div>
+            <div class='card-content username'>By: {{User.username}}</div>
+            <div class='card-footer'>
+                <div class='card-footer-item time-stamp'>{{timeStamp createdAt}}</div>
+                <a class='card-footer-item' href="/blog/{{id}}">Comments: {{Comments.length}}</a>
             </div>
         </div>
-        {{/each}}
     </article>
+
+    {{> comments blogs.Comments}}
+
+    {{/each}}
 </section>
