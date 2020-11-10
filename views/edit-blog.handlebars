@@ -1,11 +1,11 @@
 <section class="dashboard">
-    <div></div>
-    <h2>Update Your Post</h2>
+    <div>
+        <h2>Update Your Post</h2>
     </div>
-    <section id='edit-post-el'>
+    <div id='edit-post-el'>
         <form id="edit-post-form">
             <div>
-                <label for="edit-title">Update Title:{{blog.title}}</label>
+                <label for="edit-title">Update Title: {{blog.title}}</label>
                 <input type="text" name='edit-title' id="edit-title">
             </div>
             <div>
@@ -13,13 +13,13 @@
                 <textarea type="text" name='edit-content' id="edit-content" value='{{blog.content}}'></textarea>
             </div>
             <div>
-                <button id='edit-blog-btn' class='edit-btn'>Update!</button>
+                <button id='edit-blog-btn' class='create-btn'>UPDATE!</button>
             </div>
             <div>
-                <button id="delete-btn">DELETE</button>
+                <button class='delete-btn'>DELETE!</button>
             </div>
         </form>
-    </section>
+    </div>
 </section>
 
 <script src="/javascript/edit-blog.js"></script>

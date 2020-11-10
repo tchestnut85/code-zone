@@ -59,12 +59,17 @@ router.get('/edit/:id', userAuth, (req, res) => {
                     model: User,
                     attributes: ['username']
                 }
+            },
+            {
+                model: User,
+                attributes: ['username']
             }
         ]
     }).
         then(blogData => {
             if (blogData) {
                 const blog = blogData.get({ plain: true });
+                console.log('blog:', blog);
 
                 res.render('edit-blog', {
                     blog,

@@ -1,34 +1,24 @@
 <article class="post">
     <div>
-        <span>Title: {{title}}</span>
+        <span class='title'>Title: {{blog.title}}</span>
     </div>
     <div class="content">
-        <span>{{content}}</span>
+        <span>Blog: {{blog.content}}</span>
     </div>
-    <div>Blogger: {{User.username}}</div>
-    <div>Posted: {{created_at}}</div>
+    <div class='username'>Blogger: {{blog.User.username}}</div>
+    <div class='time-stamp'>Posted: {{timeStamp blog.created_at}}</div>
 </article>
 
 <form class="comment-form">
     <div>
-        <textarea name="comment-body"></textarea>
+        <label for="comment-text">Add a New Comment:</label>
+        <textarea name="comment-text" id='comment-text'></textarea>
     </div>
     <div>
-        <button type="submit">Add Comment</button>
+        <button type="submit" class='create-btn'>Add Comment</button>
     </div>
 </form>
 
-<div class="comments">
-    {{#each blog.comments}}
-    <section class="comment">
-        <div class='info'>
-            {{user.username}} at {{created_at}}
-        </div>
-        <div class="text">
-            {{content}}
-        </div>
-    </section>
-    {{/each}}
-</div>
+{{> comments blog.Comments}}
 
 <script src='/javascript/comment.js'></script>

@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body, html {
@@ -17,8 +18,8 @@ a {
   transition: color .1s;
 }
 
-nav a:hover {
-  color: #3486eb;
+.main-font {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .submit-btn {
@@ -34,10 +35,11 @@ nav a:hover {
 
 button:hover {
   background-color: blueviolet;
-  transition: 0.1s;
+  transition: 0.5s;
 }
 
 .post-list {
+  list-style: none;
   margin: 0;
   padding: 0;
 }
@@ -54,12 +56,8 @@ textarea:focus, input:focus {
 }
 
 textarea {
-  min-width: 40%;
-  min-height: 100px;
-}
-
-form > div {
-  margin-bottom: 2%;
+  min-width: 75%;
+  min-height: 250px;
 }
 
 form label {
@@ -75,20 +73,14 @@ form label {
   flex-direction: column;
 }
 
-nav {
-  border-bottom: 1px solid #ccc;
+.nav-btns {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10%;
-}
-
-nav h1 {
-  font-size: 1.5em;
 }
 
 main {
-  flex: 1;
+  /* flex: 1; */
   padding: 2% 4%;
 }
 
@@ -101,6 +93,16 @@ main {
     background-color: steelblue;
 }
 
+.new-blog-link {
+    margin: 25px 0;
+    text-align: right
+}
+
+.past-blog-heading {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
 .create-btn {
     width: 75%;
     border: 0.5px black;
@@ -108,6 +110,15 @@ main {
     padding: 10px;
     color: white;
     background-color: steelblue;
+}
+
+.delete-btn {
+    width: 75%;
+    border: 0.5px black;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    background-color: rgb(255, 44, 44);
 }
 
 .create-link:hover {
@@ -143,12 +154,6 @@ main {
 .post {
   margin-bottom: 2%;
   line-height: 150%;
-}
-
-.post .title span {
-  font-style: italic;
-  font-size: 90%;
-  color: #7d7d7d;
 }
 
 .dashboard-blog {
