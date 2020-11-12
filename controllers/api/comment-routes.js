@@ -20,9 +20,13 @@ router.get('/', (req, res) => {
         });
 });
 
-// POST - create a comment
+// POST - create a comment ** OLD CODE
 router.post('/', userAuth, (req, res) => {
+
+    console.log('this is the comment POST route!');
+
     if (req.session) {
+        console.log(req.body);
         Comment.create({
             content: req.body.content,
             blog_id: req.body.blog_id,
@@ -30,11 +34,27 @@ router.post('/', userAuth, (req, res) => {
         })
             .then(commentData => res.json(commentData))
             .catch(err => {
-                console.log(err);
                 res.status(400).json(err);
             });
     }
 });
+
+// POST - create a comment
+// router.post('/', userAuth, (req, res) => {
+
+//     console.log('this is the comment POST route!');
+
+//     if (req.session) {
+//         console.log(req.body);
+//         Comment.create({
+//             ...req.body, user_id: req.session.user_id
+//         })
+//             .then(commentData => res.json(commentData))
+//             .catch(err => {
+//                 res.status(400).json(err);
+//             });
+//     }
+// });
 
 // PUT - update a comment
 router.put('/:id', userAuth, (req, res) => {

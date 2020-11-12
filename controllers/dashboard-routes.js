@@ -29,8 +29,8 @@ router.get('/', userAuth, (req, res) => {
     })
         .then(blogData => {
             const blogs = blogData.map(blog => blog.get({ plain: true }));
-            console.log('blogs:', blogs);
-            res.render('dashboard', { blogs, loggedIn: req.session.loggedIn });
+            // console.log('blogs:', blogs);
+            res.render('dashboard', { blogs, loggedIn: true });
         }).
         catch(err => {
             console.log(err);
@@ -69,11 +69,10 @@ router.get('/edit/:id', userAuth, (req, res) => {
         then(blogData => {
             if (blogData) {
                 const blog = blogData.get({ plain: true });
-                console.log('blog:', blog);
 
                 res.render('edit-blog', {
                     blog,
-                    loggedIn: true
+                    loggedIn: req.session.loggedIn
                 });
             } else {
                 res.status(404).end();

@@ -9,7 +9,7 @@
     <div class='time-stamp'>Posted: {{timeStamp blog.created_at}}</div>
 </article>
 
-<form class="comment-form">
+<form id="comment-form">
     <div>
         <label for="comment-text">Add a New Comment:</label>
         <textarea name="comment-text" id='comment-text'></textarea>
@@ -21,4 +21,6 @@
 
 {{> comments blog.Comments}}
 
-<script src='/javascript/comment.js'></script>
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}

@@ -29,15 +29,17 @@ const sess = {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// set handlebars as view model
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+// session middleware
 app.use(session(sess));
 
 // turn on routes
 app.use(routes);
 
-// set handlebars as view model
-app.engine('handlebars', hbs.engine);
-// app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
 
 // connect the db and server
 sequelize.sync({ force: false }).then(() => {

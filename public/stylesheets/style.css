@@ -25,12 +25,14 @@ a {
 .submit-btn {
   background-color: steelblue;
   border: 0;
-  padding: 5%;
+  margin-top: 15px;
+  padding: 2%;
   color: white;
   font-weight: bold;
   transition: background-color .1s;
   cursor: pointer;
   border-radius: 5px;
+  width: 165px;
 }
 
 button:hover {
@@ -67,7 +69,6 @@ form label {
 .wrapper {
   width: 100%;
   min-height: 100%;
-  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -107,6 +108,7 @@ main {
     width: 75%;
     border: 0.5px black;
     border-radius: 5px;
+    margin-top: 10px; 
     padding: 10px;
     color: white;
     background-color: steelblue;
@@ -116,6 +118,7 @@ main {
     width: 75%;
     border: 0.5px black;
     border-radius: 5px;
+    margin-top: 10px;
     padding: 10px;
     color: white;
     background-color: rgb(255, 44, 44);

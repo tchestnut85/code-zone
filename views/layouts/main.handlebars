@@ -23,14 +23,15 @@
                         <h1 class='main-font title has-text-primary'>Code Zone</h1>
                     </a>
                 </div>
+
                 {{#if loggedIn}}
                 <div class="navbar-end nav-btns">
                     <div class="navbar-item">
                         <a href="/dashboard" class='button is-primary'>Dashboard</a>
                     </div>
-                    <div class="navbar-item">
+                    {{!-- <div class="navbar-item">
                         {{Session.username}}
-                    </div>
+                    </div> --}}
                     <div class="navbar-item">
                         <a id="logout" class='button is-danger'>logout</a>
                     </div>
@@ -45,10 +46,13 @@
                     </div>
                 </div>
                 {{/if}}
+
             </nav>
         </header>
         <main class='has-background-primary'>
+
             {{{body}}}
+
         </main>
 
         {{#if loggedIn}}

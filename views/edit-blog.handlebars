@@ -2,18 +2,21 @@
     <div>
         <h2>Update Your Post</h2>
     </div>
+    <div>
+        <a href="/dashboard">Return</a>
+    </div>
     <div id='edit-post-el'>
         <form id="edit-post-form">
             <div>
-                <label for="edit-title">Update Title: {{blog.title}}</label>
-                <input type="text" name='edit-title' id="edit-title">
+                <label for="edit-title">Update Title: </label>
+                <input name='edit-title' id='edit-title' value='{{blog.title}}'>
             </div>
             <div>
                 <label for="edit-content">Update Content:</label>
-                <textarea type="text" name='edit-content' id="edit-content" value='{{blog.content}}'></textarea>
+                <textarea name='edit-content' id='edit-content'>{{blog.content}}</textarea>
             </div>
             <div>
-                <button id='edit-blog-btn' class='create-btn'>UPDATE!</button>
+                <button type='submit' id='edit-blog-btn' class='create-btn'>UPDATE!</button>
             </div>
             <div>
                 <button class='delete-btn'>DELETE!</button>

@@ -94,7 +94,11 @@ router.post('/', userAuth, (req, res) => {
 
 // PUT - update a blog post
 router.put('/:id', userAuth, (req, res) => {
-    Blog.update(req.body,
+    Blog.update(
+        {
+            title: req.body.title,
+            content: req.body.content
+        },
         {
             where: {
                 id: req.params.id
@@ -102,11 +106,12 @@ router.put('/:id', userAuth, (req, res) => {
         }
     )
         .then(blogData => {
-            if (!blogData[0]) {
+            if (!blogData) {
                 res.status(404).json({ message: "We couldn't find that blog post!" });
                 return;
             }
             res.json(blogData);
+            console.log('blog-routes line 109', blogData);
         })
         .catch(err => {
             console.log(err);
