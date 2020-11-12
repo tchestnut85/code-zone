@@ -1,9 +1,11 @@
 async function updateBlog(event) {
     event.preventDefault();
 
-    const title = document.querySelector('#post-title').value;
-    const content = document.querySelector('#post-content').value;
-    const id = window.location.toString().split('/')[window.location.toString().split('/').length - 1];
+    const title = document.querySelector('#edit-title').value.trim();
+    const content = document.querySelector('#edit-content').value.trim();
+    const id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+    ];
 
     const response = await fetch(`/api/blogs/${id}`, {
         method: 'PUT',
@@ -21,4 +23,4 @@ async function updateBlog(event) {
     }
 }
 
-document.querySelector('#edit-blog-btn').addEventListener('submit', updateBlog);
+document.querySelector('#edit-post-form').addEventListener('submit', updateBlog);

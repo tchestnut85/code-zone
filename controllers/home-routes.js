@@ -59,7 +59,9 @@ router.get('/signup', (req, res) => {
 
 // Route for page to create a new blog post
 router.get('/new-blog', userAuth, (req, res) => {
-    res.render('new-blog');
+    if (req.session.loggedIn) {
+        res.render('new-blog', { loggedIn: true });
+    }
 });
 
 // Route for single-blog page
@@ -89,8 +91,9 @@ router.get('/blog/:id', userAuth, (req, res) => {
                 res.status(404).json({ message: "We didn't find a blog post with that ID!" });
                 return;
             }
+
             const blog = blogData.get({ plain: true });
-            res.render('single-blog', { blog });
+            res.render('single-blog', { blog, loggedIn: req.session.loggedIn });
         })
         .catch(err => {
             console.log(err);
