@@ -3,8 +3,7 @@
   ![License](https://img.shields.io/badge/License%3A-MIT-green.svg)   <a href="https://code-zone.herokuapp.com/">![Deployed App](https://img.shields.io/badge/Deployed%20App-blue.svg)</a>
 
   ## Description
-  Code Zone is a developer blog app where users can signup for an account, login with their username and password, publish blog posts, comment on others' posts, and update or delete their own posts. 
-  This is a RESTful API app using MySQL with Sequelize as an ORM.Express-session and bcrypt are used for user authentication.
+  Code Zone is a developer blog app where users can signup for an account, login with their username and password, publish blog posts, comment on others' posts, and update or delete their own posts. This is a RESTful API app following MVC development using MySQL with Sequelize as an ORM and Handlebars for the front-end. Express was used for routing along with Sequelize for accessing the API data, and Express-Session and bcrypt were used for user authentication.
 
  #### User Signup Page:
  
