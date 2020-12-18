@@ -78,8 +78,6 @@ router.get('/:id', (req, res) => {
 
 // POST - create a blog post
 router.post('/', userAuth, (req, res) => {
-    console.log('req.session from blog-routes line 78:', req.session);
-
     Blog.create({
         title: req.body.title,
         content: req.body.content,
@@ -111,7 +109,6 @@ router.put('/:id', userAuth, (req, res) => {
                 return;
             }
             res.json(blogData);
-            console.log('blog-routes line 109', blogData);
         })
         .catch(err => {
             console.log(err);

@@ -95,7 +95,6 @@ router.post('/login', (req, res) => {
 
                 res.json({ user: userData, message: `Hi ${userData.username}, you're logged in! Time to blog!!` });
             });
-
         });
 });
 
@@ -103,7 +102,6 @@ router.post('/login', (req, res) => {
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
-            console.log('logged out!');
             res.status(204).end();
         });
     } else {
