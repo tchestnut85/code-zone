@@ -1,19 +1,22 @@
 # Code Zone
 
-  ![License](https://img.shields.io/badge/License%3A-MIT-green.svg)
-  <a href="https://code-zone.herokuapp.com/">![Deployed App](https://img.shields.io/badge/CodeZone%20Deployed%20App-blue.svg)</a>
+  ![License](https://img.shields.io/badge/License%3A-MIT-green.svg)   <a href="https://code-zone.herokuapp.com/">![Deployed App](https://img.shields.io/badge/Deployed%20App-blue.svg)</a>
 
   ## Description
-  Code Zone is a developer blog site where users can publish blog posts as well as comment on others' posts.
+  Code Zone is a developer blog app where users can signup for an account, login with their username and password, publish blog posts, comment on others' posts, and update or delete their own posts. 
+  This is a RESTful API app using MySQL with Sequelize as an ORM.Express-session and bcrypt are used for user authentication.
 
  #### User Signup Page:
-![User Signup](./screenshot-1.jpg)
+ 
+![User Signup](./assets/images/screenshot-1.jpg)
 
  #### User Dashboard with Their Blogs:
-![User Dashboard](./screenshot-2.jpg)
+
+![User Dashboard](./assets/images/screenshot-2.jpg)
 
 #### Main Page with All Users' Blogs:
-![Main Blog Page](./screenshot-3.jpg)
+
+![Main Blog Page](./assets/images/screenshot-3.jpg)
 
   ## Table of Contents
   - [Installation](#installation)
@@ -33,14 +36,17 @@
   - Navigate to your `localhost:3001` in your browser to open the app locally.
 
   ## Tech Used
-  - Handlebars.js
-  - Node.js
-  - Express.js
-  - Express-session
-  - bcrypt 
-  - MySQL/MySQL2
-  - Sequelize
-  - dotenv
+  - JavaScript
+  - [Handlebars.js](https://handlebarsjs.com/)
+  - [Node.js](https://nodejs.org/en/)
+  - [Express.js](https://www.npmjs.com/package/express)
+  - [Express-session](https://www.npmjs.com/package/express-session)
+  - [bcrypt](https://www.npmjs.com/package/bcrypt)
+  - [MySQL](https://dev.mysql.com/doc/)
+  - [MySQL2](https://www.npmjs.com/package/mysql2)
+  - [Sequelize](https://www.npmjs.com/package/sequelize)
+  - [dotenv](https://www.npmjs.com/package/dotenv)
+  - [Bulma](https://bulma.io/documentation/)
   
   ## Questions
   Please visit my **[GitHub profile](https://github.com/tchestnut85/)** to check out this and other projects I've created and contributed to.
@@ -49,8 +55,9 @@
   ## Links
   - **[Deployed App](https://code-zone.herokuapp.com/)**
   - **[GitHub Repo](https://github.com/tchestnut85/code-zone/)**
+  - **[My Portfolio](https://tchestnut85.github.io/)**
+  - **[Connect on LinkedIn](https://www.linkedin.com/in/thomas-chestnut)**
 
-  ## License
-  ![License](https://img.shields.io/badge/License%3A-MIT-green.svg)
-  
+  ## License  
+  ![License](https://img.shields.io/badge/License%3A-MIT-green.svg)    
   This app is licensed under the MIT license.

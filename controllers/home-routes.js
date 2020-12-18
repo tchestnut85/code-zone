@@ -5,8 +5,6 @@ const timeStamp = require('../utils/helpers');
 
 // GET the homepage
 router.get('/', (req, res) => {
-    // console.log(req.session);
-
     Blog.findAll({
         attributes: [
             'id',
