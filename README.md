@@ -5,6 +5,15 @@
   ## Description
   Code Zone is a developer blog site where users can publish blog posts as well as comment on others' posts.
 
+ #### User Signup Page:
+![User Signup](./assets/images/screenshot-1.JPG)
+
+ #### User Dashboard with Their Blogs:
+![User Dashboard](./assets/images/screenshot-2.JPG)
+
+#### Main Page with All Users' Blogs:
+![Main Blog Page](./assets/images/screenshot-3.JPG)
+
   ## Table of Contents
   - [Installation](#installation)
   - [Tech Used](#tech-used)
