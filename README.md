@@ -1,9 +1,19 @@
 # Code Zone
 
   ![License](https://img.shields.io/badge/License%3A-MIT-green.svg)
+  <a href="https://code-zone.herokuapp.com/">![Deployed App](https://img.shields.io/badge/CodeZone%20Deployed%20App-blue.svg)</a>
 
   ## Description
   Code Zone is a developer blog site where users can publish blog posts as well as comment on others' posts.
+
+ #### User Signup Page:
+![User Signup](./screenshot-1.jpg)
+
+ #### User Dashboard with Their Blogs:
+![User Dashboard](./screenshot-2.jpg)
+
+#### Main Page with All Users' Blogs:
+![Main Blog Page](./screenshot-3.jpg)
 
   ## Table of Contents
   - [Installation](#installation)
